@@ -22,11 +22,12 @@
         <input id="priceinput" type="text" />
         <button id="checkbtn">Проверить</button>
     </div>
-    <script>
+<!--     Сумма покупки составляет а рублей. Если а больше 1000 рублей, то предоставляется скидка 15%. Вывести на экран сумму покупки с учетом скидки либо сообщение о том, что скидка не предоставляется.
+ -->    <script>
         function isDiscount() {
             var a = +(document.getElementById("priceinput").value);
             if (a > 1000) {
-                var newprice = a*0.85;
+                var newprice = a * 0.85;
                 alert(newprice);
             } else {
                 alert("скидка не предоставляется");
@@ -36,3 +37,4 @@
         document.getElementById("checkbtn").addEventListener("click", isDiscount);
     </script>
 </body>
+</html>

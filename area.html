@@ -23,21 +23,22 @@
         <input id="square" type="text" />
         <button id="checkbtn">Проверить</button>
     </div>
-    <script>
+<!--     Известны площади круга и квадрата. Определить: уместится ли круг в квадрате уместится ли квадрат в круге 
+ -->    <script>
         function checkfill() {
             var circle = +(document.getElementById("circle").value);
             var square = +(document.getElementById("square").value);
 
-            var squareheight = Math.sqrt(square);
-            var circlediametr = Math.sqrt((circle/3,14159)*2);
+            var squareHeight = Math.sqrt(square);
+            var circleDiametr = Math.sqrt((circle/3,14159) * 2);
 
-            if (circlediametr <= squareheight) {
+            if (circleDiametr <= squareHeight) {
                 alert("Круг помещается в квадрате");
             } else {
                 alert("Круг не помещается в квадрате");
             }
 
-            if ((squareheight*Math.sqrt(2)) <= circlediametr) {
+            if ((squareHeight*Math.sqrt(2)) <= circleDiametr) {
                 alert("Квадрат помещается в круге");
             } else {
                 alert("Квадрат не помещается в круге");
@@ -47,3 +48,4 @@
         document.getElementById("checkbtn").addEventListener("click", checkfill);
     </script>
 </body>
+</html>

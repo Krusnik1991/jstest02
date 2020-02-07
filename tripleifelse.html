@@ -22,7 +22,8 @@
         <input id="numinput" type="text" />
         <button id="checkbtn">Проверить</button>
     </div>
-    <script>
+<!--     Человек вводит в компьютер число. Если оно находится в интервале от 28 до 30, то нужно напечатать текст ПОПАЛ, если оно больше или равно 30 - то ПЕРЕЛЕТ, если оно находится на отрезке от 0 до 28, то НЕДОЛЕТ, если число меньше нуля - НЕ БЕЙ ПО СВОИМ 
+ -->    <script>
         function checkAge() {
             var inpval = +(document.getElementById("numinput").value);
             if (inpval == 29) {
@@ -39,3 +40,4 @@
         document.getElementById("checkbtn").addEventListener("click", checkAge);
     </script>
 </body>
+</html>

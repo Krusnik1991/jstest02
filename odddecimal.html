@@ -22,16 +22,17 @@
         <input id="decimalinput" type="text" />
         <button id="checkbtn">Проверить</button>
     </div>
-    <script>
-        function evencheck() {
+<!--     Дано целое число A. Проверить истинность высказывания: «Число A является нечетным». 
+ -->    <script>
+        function oddcheck() {
             var dec = document.getElementById("decimalinput").value;
-            if(dec%2==0){
+            if (dec % 2 == 0) {
                 alert("false");
-            }else{
+            } else {
                 alert("true");
             }
         }
 
-        document.getElementById("checkbtn").addEventListener("click", evencheck);
+        document.getElementById("checkbtn").addEventListener("click", oddcheck);
     </script>
 </body>
