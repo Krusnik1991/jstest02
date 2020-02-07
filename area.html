@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="circle" type="text" />
+        <input id="square" type="text" />
+        <button id="checkbtn">Проверить</button>
+    </div>
+    <script>
+        function checkfill() {
+            var circle = +(document.getElementById("circle").value);
+            var square = +(document.getElementById("square").value);
+
+            var squareheight = Math.sqrt(square);
+            var circlediametr = Math.sqrt((circle/3,14159)*2);
+
+            if (circlediametr <= squareheight) {
+                alert("Круг помещается в квадрате");
+            } else {
+                alert("Круг не помещается в квадрате");
+            }
+
+            if ((squareheight*Math.sqrt(2)) <= circlediametr) {
+                alert("Квадрат помещается в круге");
+            } else {
+                alert("Квадрат не помещается в круге");
+            }
+        }
+
+        document.getElementById("checkbtn").addEventListener("click", checkfill);
+    </script>
+</body>

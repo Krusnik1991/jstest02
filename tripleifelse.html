@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="numinput" type="text" />
+        <button id="checkbtn">Проверить</button>
+    </div>
+    <script>
+        function checkAge() {
+            var inpval = +(document.getElementById("numinput").value);
+            if (inpval == 29) {
+                alert("попал");
+            } else if (inpval >= 30) {
+                alert("не подходит");
+            } else if (inpval >= 0 && inpval <= 28) {
+                alert("недолет");
+            } else {
+                alert("не бей по своим");
+            }
+        }
+
+        document.getElementById("checkbtn").addEventListener("click", checkAge);
+    </script>
+</body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="priceinput" type="text" />
+        <button id="checkbtn">Проверить</button>
+    </div>
+    <script>
+        function isDiscount() {
+            var a = +(document.getElementById("priceinput").value);
+            if (a > 1000) {
+                var newprice = a*0.85;
+                alert(newprice);
+            } else {
+                alert("скидка не предоставляется");
+            }
+        }
+
+        document.getElementById("checkbtn").addEventListener("click", isDiscount);
+    </script>
+</body>
