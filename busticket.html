@@ -24,7 +24,7 @@
     </div>
 <!--     Автобусный билет считают счастливым, если сумма трех первых цифр билета равна сумме трех последних цифр. Требуется составить блок-схему алгоритма определения билета, имеющего счастливый номер (6чисел в билете)
  -->    <script>
-        function equaltriplet() {
+        function equalTriplet() {
             var full = document.getElementById("numsinput").value;
             var arr = full.split("");
             var tripletfirst = 0;
@@ -48,7 +48,7 @@
             }
         }
 
-        document.getElementById("checkbtn").addEventListener("click", equaltriplet);
+        document.getElementById("checkbtn").addEventListener("click", equalTriplet);
     </script>
 </body>
 </html>

@@ -19,30 +19,26 @@
 </head>
 <body>
     <div class="content-container">
-        <input id="num" type="text" />
         <button id="checkbtn">Проверить</button>
+        <p id="ui"></p>
     </div>
-<!--     Проверить, принадлежит ли число введенное с клавиатуры, интервалу (-5;3) 
+<!--     С помощью оператора while напишите программу определения суммы всех нечетных чисел в диапазоне от 1 до 99 включительно.
  -->    <script>
-        var start = -5;
-        var array = [];
 
-        while (start <= 3) {
-            array.push(start++)
+        function summEven() {
+            var result = 0;
+            var i = 2;
+            do {
+                if (i % 2 === 0) {
+                    result += i;
+                }
+                i++                
+            } while (i <= 100);
+
+            document.getElementById("ui").innerHTML = result;
         }
-
-        function checkContains() {
-            var number = +(document.getElementById("num").value);
-            if (array.indexOf(number) === -1) {
-                alert("Нет такого числа в массиве");
-            } else {
-                alert("Число найдено");
-            }
-        }
-
-        console.log(array);
-
-        document.getElementById("checkbtn").addEventListener("click", checkContains);
+        
+        document.getElementById("checkbtn").addEventListener("click", summEven);
     </script>
 </body>
 </html>

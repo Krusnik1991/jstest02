@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <div class="tablebox">
+            <table id="multiple"></table>
+        </div>
+    </div>
+<!--     Вывести таблицу умножения
+ --><script>
+        function createTable() {
+            for (var i = 1; i < 10; i++) {
+                var wrapNode = document.createElement("tr");
+                var tr = document.getElementById("multiple").appendChild(wrapNode);
+                for (var j = 10; j > 0; j--) {
+                    var node = document.createElement("td");
+                    var td = wrapNode.appendChild(node);
+                    if (i === 1) {
+                        td.innerHTML = j;
+                    if (j % 2 === 0) {
+                        td.innerHTML = "";
+                        }
+                    } else if (j === 10) {
+                        td.innerHTML = "";
+                        if (i % 2 === 0) {
+                            td.innerHTML = i;
+                        }
+                    } else if (i % 2 === 0 && j % 2 !== 0) {
+                        td.innerHTML = i * j;
+                    }
+                }
+            }
+        }
+
+        createTable();
+    </script>
+</body>
+</html>
+
+<!-- for (var i = 1; i < 10; i++) {
+    var wrapNode = document.createElement("tr");
+    var tr = document.getElementById("multiple").appendChild(wrapNode);
+    for (var j = 1; j < 10; j++) {
+        var node = document.createElement("td");
+        var td = wrapNode.appendChild(node);
+        td.innerHTML = i + " * " + j + " = " + i * j;                    
+    }
+} -->
+
+<!-- for (var i = 1; i < 10; i++) {
+    var wrapNode = document.createElement("tr");
+    var tr = document.getElementById("multiple").appendChild(wrapNode);
+    for (var j = 9; j > 0; j--) {
+        var node = document.createElement("td");
+        var td = wrapNode.appendChild(node);
+        td.innerHTML = j + " * " + i + " = " + i * j;
+    }
+} -->

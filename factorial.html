@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="factorial" type="text" />
+        <button id="checkbtn">Проверить</button>
+    </div>
+<!--     Факториал числа представляет собой произведение всех натуральных чисел от 1 до этого числа включительно. Например, факториал числа 7 выглядит так: 1 * 2 * 3 * 4 * 5 * 6 * 7 Требуется определить факториал числа, которое ввел пользователь.
+ -->    <script>
+        function showFactorial() {
+            var val = +document.getElementById("factorial").value;
+            var factorial = 1;
+            for (var i = 1; i <= val; i++) {
+                factorial *= i;
+            }
+            alert(factorial);
+        }
+
+        document.getElementById("checkbtn").addEventListener("click", showFactorial);
+    </script>
+</body>
+</html>
+
+
+<!-- var val = +document.getElementById("factorial").value;
+function factorial(val) {
+if (val === 1) {
+return 1;
+} else {
+return val * factorial(val-1);
+}
+}
+var result = factorial(val);
+alert(result); -->

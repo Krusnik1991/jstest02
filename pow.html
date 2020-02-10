@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="base" type="text" />
+        <input id="exponent" type="text" />
+        <button id="checkbtn">Проверить</button>
+    </div>
+<!--     Возвести число в степень с помощью цикла и операции умножения
+ --><script>
+        function makePow() {
+            var base = +document.getElementById("base").value;
+            var exp = +document.getElementById("exponent").value;
+            var result = base;
+            for (var i = 1; i < exp; i++) {
+                result *= base;
+            }
+            console.log(result);
+        }
+
+
+        document.getElementById("checkbtn").addEventListener("click", makePow);
+    </script>
+</body>
+</html>
+
+<!-- var base = +document.getElementById("base").value;
+var pow = Math.pow(base, 2);
+console.log(pow); -->
+
+
+<!-- var base = +document.getElementById("base").value;
+var exp = +document.getElementById("exponent").value;
+var dfdf = base;
+for (var i = 1; i < exp; i++) {
+    dfdf = dfdf*base;
+}
+console.log(dfdf); -->

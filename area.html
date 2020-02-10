@@ -25,12 +25,13 @@
     </div>
 <!--     Известны площади круга и квадрата. Определить: уместится ли круг в квадрате уместится ли квадрат в круге 
  -->    <script>
-        function checkfill() {
+        function checkFill() {
             var circle = +(document.getElementById("circle").value);
             var square = +(document.getElementById("square").value);
 
             var squareHeight = Math.sqrt(square);
             var circleDiametr = Math.sqrt((circle/3,14159) * 2);
+            var squareDiagonal = squareHeight*Math.sqrt(2);
 
             if (circleDiametr <= squareHeight) {
                 alert("Круг помещается в квадрате");
@@ -38,14 +39,14 @@
                 alert("Круг не помещается в квадрате");
             }
 
-            if ((squareHeight*Math.sqrt(2)) <= circleDiametr) {
+            if ( squareDiagonal <= circleDiametr) {
                 alert("Квадрат помещается в круге");
             } else {
                 alert("Квадрат не помещается в круге");
             }
         }
 
-        document.getElementById("checkbtn").addEventListener("click", checkfill);
+        document.getElementById("checkbtn").addEventListener("click", checkFill);
     </script>
 </body>
 </html>
