@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="height" type="text" />
+        <button id="checkbtn">Проверить</button>
+    </div>
+<!--     Нарисовать равнобедренный треугольник из символов ^. Высоту выбирает пользователь. Например: высота = 5, на экране
+ -->    <script>
+        function createTriangle() {
+            var max = +document.getElementById("height").value;
+            var i = 0, j = 0;
+
+            while (i < max) {
+                space = "";
+                star = "";
+                for (j = 0; j < max - i; j++) space += " ";
+                for (j = 0; j < 2 * i + 1; j++) star += "^";
+                console.log(space + star);
+                i++;
+            }
+        }
+
+        document.getElementById("checkbtn").addEventListener("click", createTriangle);
+    </script>
+</body>
+</html>
+
+<!-- while (i < max) {
+    space = "";
+    star = "";
+    for (j = max+1; j > max - i; j--) space += " ";
+    for (j = max+1; j > 2 * i + 1; j--) star += "*";
+    console.log(space + star);
+    i++;
+} -->
