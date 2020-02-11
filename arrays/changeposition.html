@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="../styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="elem" type="text" />
+        <button id="inputbtn">Добавить число в массив</button>
+        <button id="execute">Поменять min and max</button>
+        <p id=ui2></p>
+        <p id="ui"></p>
+    </div>
+<!--     В массиве найти минимальный и максимальный элементы, поменять их местами.
+ --><script>
+        var arr = [];
+        function addElems() {
+            var elem = document.getElementById("elem");
+            var val = +elem.value;
+            arr.push(val);
+            elem.value = "";
+            document.getElementById("ui2").innerHTML = arr;
+        }
+
+        function changePosition() {
+            var max = 0;
+            var min = 0;
+            for (i = 0; i < arr.length; i++) {
+                if (arr[i] > arr[max]) {
+                    max = i;
+                }
+                if (arr[i] < arr[min]) {
+                    min = i;
+                }
+            }
+            var tmp = arr[min];
+            arr[min] = arr[max];
+            arr[max] = tmp;
+            document.getElementById("ui").innerHTML = arr;
+        }
+
+        document.getElementById("inputbtn").addEventListener("click", addElems);
+        document.getElementById("execute").addEventListener("click", changePosition);
+    </script>
+</body>
+</html>

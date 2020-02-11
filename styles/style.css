@@ -62,6 +62,14 @@ p {
    padding-left: 50px;
 }
 
+#ui1 {
+   color: black;
+}
+
+#ui2 {
+   color: blue;
+}
+
 .tablebox {
    overflow: auto;
     margin-bottom: 10px;
