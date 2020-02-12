@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="../styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="elem" type="text" value="Посмотрите в консоль" />
+        <button id="execute">индекс максимального элемента</button>
+        <p id=ui2></p>
+        <p id="ui"></p>
+    </div>
+<!--     Сгенерировать десять массивов из случайных чисел. Вывести их и сумму их элементов на экран. Найти среди них один с максимальной суммой элементов. Указать какой он по счету, повторно вывести этот массив и сумму его элементов.
+ --><script>
+        function createArr(name) {
+            name = new Array();
+            name.length = 10;
+            summ = 0;
+            for (i = 0; i < name.length; i++) {
+                name[i] = Math.round(Math.random() * 100);
+                summ += name[i];
+            }
+            console.log(name);
+            console.log(summ);
+        }
+
+        createArr("first");
+        createArr("second");
+        createArr("third");
+        createArr("fourth");
+        createArr("fifth");
+        createArr("sixth");
+        createArr("seventh");
+        createArr("eighth");
+        createArr("ninth");
+        createArr("tenth");
+
+    </script>
+</body>
+</html>

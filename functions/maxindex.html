@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="../styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="elem" type="text" value="Посмотрите в консоль" />
+        <button id="execute">индекс максимального элемента</button>
+        <p id=ui2></p>
+        <p id="ui"></p>
+    </div>
+<!--     Создайте функцию, возвращающую индекс максимального элемента части массива. Часть задавайте диапазоном индексов (с какого по какой).
+ --><script>
+        function showMaxElementIndex(from, to) {
+            var arr = [1, -1, 0, 34, 1122];
+            var arr2 = arr.slice(from, to);
+            console.log(arr2);
+            max = arr2[0];
+            var maxIndex = 0;
+            for (var i = 0; i < arr2.length; i++) {
+                if (arr2[i] > max) {
+                    max = arr2[i];
+                    maxIndex = i;
+                }
+            }
+            console.log(maxIndex);
+        }
+
+        showMaxElementIndex(0, 3);
+
+        document.getElementById("execute").addEventListener("click", showMaxElementIndex);
+    </script>
+</body>
+</html>

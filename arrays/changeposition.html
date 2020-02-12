@@ -55,6 +55,12 @@
 
         document.getElementById("inputbtn").addEventListener("click", addElems);
         document.getElementById("execute").addEventListener("click", changePosition);
+        document.getElementById("elem").addEventListener('keydown', function (e) {
+            if (e.keyCode === 13) {
+                console.log("enter pressed");
+                addElems();
+            }
+        });
     </script>
 </body>
 </html>

@@ -25,17 +25,20 @@
 <!--     Нарисовать равнобедренный треугольник из символов ^. Высоту выбирает пользователь. Например: высота = 5, на экране
  -->    <script>
         function createTriangle() {
-            var max = +document.getElementById("height").value;
-            var i = 0, j = 0;
+            var height = +document.getElementById("height").value;
+            var i, j, sp, st;
+            str = "";
 
-            while (i < max) {
-                space = "";
-                star = "";
-                for (j = 0; j < max - i; j++) space += " ";
-                for (j = 0; j < 2 * i + 1; j++) star += "^";
-                console.log(space + star);
-                i++;
+            for (i = 0; i < height; i++) {
+                for (sp = 0; sp < (height - i - 1); sp++) {
+                    str += " ";
+                }
+                for (st = 0; st < 2 * i + 1; st++) {
+                    str += "*";
+                }
+                str += "\n"
             }
+            console.log(str)
         }
 
         document.getElementById("checkbtn").addEventListener("click", createTriangle);
@@ -52,8 +55,11 @@
     i++;
 } -->
 
-
-<!-- str = "";
-for (i=0; i < height; i++) {
-for (j=0; j < (2*i)+1; j++{ //или j < (i+1)*2
-str += (height - i - 1) пробелов + (2*i)+1) звездочек + "\n" -->
+<!-- while (i < max) {
+    space = "";
+    star = "";
+    for (j = 0; j < max - i; j++) space += " ";
+    for (j = 0; j < 2 * i + 1; j++) star += "^";
+    console.log(space + star);
+    i++;
+} -->

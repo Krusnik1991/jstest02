@@ -21,11 +21,11 @@
     <div class="content-container">
         <input id="elem" type="text" />
         <button id="inputbtn">Добавить число в массив</button>
-        <button id="execute">Поделить на наибольшее число сумму всех чисел</button>
+        <button id="execute">Max - Min</button>
         <p id=ui2></p>
         <p id="ui"></p>
     </div>
-<!--     Все элементы массива поделить на значение наибольшего элемента этого массива.
+<!--     В одномерном массиве найти минимальный и максимальный элементы. Вычислить их разность.
  --><script>
         var arr = [];
         function addElems() {
@@ -36,23 +36,19 @@
             document.getElementById("ui2").innerHTML = arr;
         }
 
-        function divideLargest() {
-            var m = arr[0];
-            var summ = 0;
+        function minMaxDifference() {
+            var min = arr[0];
+            var max = arr[0];
             for (i = 0; i < arr.length; i++) {
-                summ += arr[i];
-                if (arr[i] > m) {
-                    m = arr[i];
-                }
-                console.log(summ);
-            }
-            var divided = summ / m;
-            console.log(m);
-            document.getElementById("ui").innerHTML = divided;
+                if (arr[i] < min) min = arr[i];
+                if (arr[i] > max) max = arr[i];
+            }            
+            var difference = max - min;
+            document.getElementById("ui").innerHTML = difference;
         }
 
         document.getElementById("inputbtn").addEventListener("click", addElems);
-        document.getElementById("execute").addEventListener("click", divideLargest);
+        document.getElementById("execute").addEventListener("click", minMaxDifference);
         document.getElementById("elem").addEventListener('keydown', function (e) {
             if (e.keyCode === 13) {
                 console.log("enter pressed");
