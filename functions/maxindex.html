@@ -26,22 +26,19 @@
     </div>
 <!--     Создайте функцию, возвращающую индекс максимального элемента части массива. Часть задавайте диапазоном индексов (с какого по какой).
  --><script>
-        function showMaxElementIndex(from, to) {
-            var arr = [1, -1, 0, 34, 1122];
-            var arr2 = arr.slice(from, to);
-            console.log(arr2);
-            max = arr2[0];
+        function showMaxElementIndex(arr, from, to) {
+            max = arr[from];
             var maxIndex = 0;
-            for (var i = 0; i < arr2.length; i++) {
-                if (arr2[i] > max) {
-                    max = arr2[i];
+            for (var i = from; i <= to; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
                     maxIndex = i;
                 }
             }
             console.log(maxIndex);
         }
 
-        showMaxElementIndex(0, 3);
+        showMaxElementIndex([1, -1, 0, 34, 1122], 0, 2);
 
         document.getElementById("execute").addEventListener("click", showMaxElementIndex);
     </script>
