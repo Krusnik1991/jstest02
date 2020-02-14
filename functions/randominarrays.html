@@ -20,72 +20,60 @@
 <body>
     <div class="content-container">
         <input id="elem" type="text" value="Посмотрите в консоль" />
-        <button id="execute">индекс максимального элемента</button>
+        <button id="execute">Ничего не произойдет</button>
         <p id=ui2></p>
         <p id="ui"></p>
     </div>
 <!--     Сгенерировать десять массивов из случайных чисел. Вывести их и сумму их элементов на экран. Найти среди них один с максимальной суммой элементов. Указать какой он по счету, повторно вывести этот массив и сумму его элементов. Заполнение массива и подсчет суммы его элементов оформить в виде отдельной функции.
  --><script>
-        function countSumm(array) {
-
-            return summ;
-        }
-
-        function createArr() {
-            var mainArr = new Array(); // Создать главный массив для хранения вложенных
-
-            return [];
-        }
-
-        var arrays = new Array();
-        for (var i = 0; i < 10; i++) {
-            arrays[i] = createArr();
-        }
-
-        console.log(arrays); // Array(10)
-
-        var maxSumm = countSumm(arrays[0]);
-        for (var i = 1; i < arrays.length; i++) {
-            var sum = countSumm(arrays[i]);
-            if (sum > maxSumm) {
-                maxSumm = sum;
+        // Посчитать сумму вложенного массива
+        function countSum(innerArr) {
+            var sum = 0;
+            for (var i = 0; i < innerArr.length; i++) {
+                sum += innerArr[i];
             }
+            console.log(sum);
+            return sum;
         }
 
-        createArr();
+        // Заполнить вложенный массив 10ю числами
+        function createArr(q) {
+            for (var i = 0; i < q; i++) {
+                arr[i] = Math.round(Math.random() * 100);
+            }
+            return arr;
+        }
+
+        // Найти максимальную сумму и вывести этот массив с его номером
+        function showMax(mainArr) {
+            var maxSum = 0;
+            var arrNumber = 0;
+            var maxInnerArr = mainArr[0];
+            for (var i = 0; i < mainArr.length; i++) {
+                var res = countSum(mainArr[i]);
+                if (res > maxSum) {
+                    maxSum = res;
+                    arrNumber = i;
+                    maxInnerArr = mainArr[i];
+                }
+            }
+            console.log("maxInnerArr", maxInnerArr);
+            console.log("arrNumber", arrNumber);
+            console.log("maxSum", maxSum);
+        }
+        
+        // Создать главный массив для хранения вложенных массивов
+        var mainArr = new Array();
+
+        // Создать вложенные массивы
+        for (var i = 0; i < 10; i++) {
+            var arr = [];
+            mainArr[i] = createArr(10);
+        }
+
+        console.log("mainArr", mainArr);
+
+        showMax(mainArr);
     </script>
 </body>
 </html>
-
-<!-- function createArr() {
-    count = 10;
-
-    var maxSumm = 0;
-    var arrNum = 0;
-    var maxArr;
-
-    for (j = 0; j < count; j++) {
-
-        var summ = 0;
-        var arr = [];
-        arr.length = 10;
-
-        for (var i = 0; i < arr.length; i++) {
-            arr[i] = Math.round(Math.random() * 100);
-            summ += arr[i];
-        };
-
-        if (summ > maxSumm) {
-            maxSumm = summ;
-            arrNum = j;
-            maxArr = arr;
-        }
-
-        console.log("arr", arr);
-        console.log("summ", summ);
-    }
-
-    console.log("maxSumm", maxSumm);
-    console.log("arrNum", arrNum);
-    console.log("maxArr", maxArr);
-} -->

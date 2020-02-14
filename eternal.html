@@ -33,16 +33,16 @@
                 console.log(numbsArr);
             } else {
                 var length = numbsArr.length;
-                function arrSumm () {
-                    summResult = 0;
+                function arr () {
+                    sumResult = 0;
                     for (i = 0; i < numbsArr.length; i++) {
-                        summResult += numbsArr[i];
+                        sumResult += numbsArr[i];
                     }
-                    return summResult;
+                    return sumResult;
                 };
-                var middle = arrSumm() / length;
+                var middle = arrSum() / length;
                 console.log("Количество", length);
-                console.log("Сумма", arrSumm());
+                console.log("Сумма", arrSum());
                 console.log("Среднее арифметическое", middle);
             }
             elem.value = "";

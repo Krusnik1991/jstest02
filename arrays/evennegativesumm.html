@@ -36,7 +36,7 @@
             document.getElementById("ui2").innerHTML = arr;
         }
 
-        function summEvenNegative() {
+        function sumEvenNegative() {
             res = 0;
             var i;
             for (i = 0; i < arr.length; i++) {
@@ -46,7 +46,7 @@
         }
 
         document.getElementById("inputbtn").addEventListener("click", addElems);
-        document.getElementById("execute").addEventListener("click", summEvenNegative);
+        document.getElementById("execute").addEventListener("click", sumEvenNegative);
         document.getElementById("elem").addEventListener('keydown', function (e) {
             if (e.keyCode === 13) {
                 console.log("enter pressed");

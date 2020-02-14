@@ -15,30 +15,27 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <!-- /headers -->
-    <link href="styles/style.css" rel="stylesheet" />
+    <link href="../styles/style.css" rel="stylesheet" />
 </head>
 <body>
     <div class="content-container">
-        <button id="checkbtn">Проверить</button>
+        <input id="elem" type="text" value="Посмотрите в консоль" />
+        <button id="execute">Ничего не произойдет</button>
+        <p id=ui2></p>
         <p id="ui"></p>
     </div>
-<!--     С помощью оператора while напишите программу определения суммы всех нечетных чисел в диапазоне от 1 до 99 включительно.
- -->    <script>
-
-        function sumOdd() {
-            var result = 0;
-            var i = 1;
-            while (i <= 99) {
-                if (i % 2 !== 0) {
-                    result += i;
-                }
-                i++;
+<!--     Дано натуральное число n. Выведите все числа от 1 до n с помощью рекурсии.
+ --><script>
+        function listNum(n) {
+            if (n == 1) {
+                return "1";
             }
 
-            document.getElementById("ui").innerHTML = result;
-        }
-        
-        document.getElementById("checkbtn").addEventListener("click", sumOdd);
+            return listNum(n-1) + " " + n;
+        };
+
+        console.log(listNum(15));
+
     </script>
 </body>
 </html>
