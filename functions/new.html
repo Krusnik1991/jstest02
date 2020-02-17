@@ -25,21 +25,19 @@
         <p id="ui"></p>
     </div>
     <script>
-        function checkAge(age) {
-            if (age > 18) {
-                return true;
-            } else {
-                return confirm('Родители разрешили?');
+        let emp1 = {};
+        let fil1 = {"pr": "smth"};
+
+        isEmpty = myobj => {
+            for (let key in myobj) {
+                return "Не пустой";
             }
+            return "Пустой";
         }
+        
 
-        function checkAge(age) {
-            return age > 18 ? true : confirm('Родители разрешили?');
-        }
-
-        function checkAge(age) {
-            return age > 18 || confirm('Родители разрешили?');
-        }
+        console.log(isEmpty(emp1));
+        console.log(isEmpty(fil1));
     </script>
 </body>
 </html>

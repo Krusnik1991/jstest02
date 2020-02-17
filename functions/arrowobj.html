@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="../styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="elem" type="text" value="Посмотрите в консоль" />
+        <button id="execute">Ничего не произойдет</button>
+        <p id=ui2></p>
+        <p id="ui"></p>
+    </div>
+<!--     Сгенерировать десять массивов из случайных чисел. Вывести их и сумму их элементов на экран. Найти среди них один с максимальной суммой элементов. Указать какой он по счету, повторно вывести этот массив и сумму его элементов. Заполнение массива и подсчет суммы его элементов оформить в виде отдельной функции.
+ --><script>
+        // Заполнить вложенный массив 10ю числами и добавить в объект вместе с его суммой
+        createObj = q => {
+            var sum = 0;
+            var arr = [];
+            var arrSummObj = {};
+            for (var i = 0; i < q; i++) {
+                arr[i] = Math.round(Math.random() * 100);
+                sum += arr[i];
+            }
+            arrSummObj.arr = arr;
+            arrSummObj.sum = sum;
+            arrSummObj.number = flag;
+
+            console.log(arrSummObj);
+            console.log(sum);
+            console.log(flag);
+            return arrSummObj;
+        }
+
+        // Найти максимальную сумму и вывести этот массив с его номером
+        showMax = mainArr => {
+            var maxSum = 0;
+            var arrNumber = mainArr[0].number;  
+            var maxInnerArr = mainArr[0].arr;
+            for (var i = 0; i < mainArr.length; i++) {
+                if (mainArr[i].sum > maxSum) {
+                    maxSum = mainArr[i].sum;
+                    maxInnerArr = mainArr[i].arr;
+                    arrNumber = mainArr[i].number;
+                }
+            }
+            console.log("maxInnerArr", maxInnerArr);
+            console.log("arrNumber", arrNumber);
+            console.log("maxSum", maxSum);
+        }
+        
+        // Создать главный массив для хранения вложенных массивов
+        var mainArr = new Array();
+
+        // Создать вложенные объекты
+        for (var i = 0; i < 10; i++) {
+            flag = i;
+            mainArr[i] = createObj(10);
+        }
+
+        console.log("mainArr", mainArr);
+
+        showMax(mainArr);
+    </script>
+</body>
+</html>
