@@ -26,39 +26,43 @@
     </div>
 <!--     Сгенерировать десять массивов из случайных чисел. Вывести их и сумму их элементов на экран. Найти среди них один с максимальной суммой элементов. Указать какой он по счету, повторно вывести этот массив и сумму его элементов. Заполнение массива и подсчет суммы его элементов оформить в виде отдельной функции.
  --><script>
-        // Заполнить вложенный массив 10ю числами и добавить в объект вместе с его суммой и порядковым номером
-        createObj = (q, flag) => {
-            let sum = 0;
-            let arr = [];
-            let arrSummObj = {};
-            for (let i = 0; i < q; i++) {
-                arr[i] = Math.round(Math.random() * 100);
-                sum += arr[i];
+        Object.prototype.getSum = function() {
+            sum = 0;
+            for (let i = 0; i < this.miniarr.length; i++) {
+                sum += this.miniarr[i];
             }
-            arrSummObj.arr = arr;
-            arrSummObj.sum = sum;
-            arrSummObj.number = flag;
+            return sum;
+        }
 
-            console.log(arrSummObj);
-            console.log(sum);
-            console.log(flag);
-            return arrSummObj;
+        Object.prototype.getArr = function(q) {
+            let miniarr = [];
+            for (let i = 0; i < q; i++) {
+                miniarr[i] = Math.round(Math.random() * 100);
+            }
+            return miniarr;
+        }
+
+        function createArraySumObj(q) {
+            this.q = q;
+            this.miniarr = this.getArr(q);
+            this.sum = this.getSum();
+            console.log(this);
         }
 
         // Найти максимальную сумму и вывести этот массив с его номером
-        showMax = mainArr => {
-            let maxSum = mainArr[0].sum;
-            let maxArrayId = 0;
-            for (let i = 1; i < mainArr.length; i++) {
-                if (mainArr[i].sum > maxSum) {
-                    maxSum = mainArr[i].sum;
-                    maxArrayId = i;
+            showMax = mainArr => {
+                let maxSum = mainArr[0].sum;
+                let maxArrayId = 0;
+                for (let i = 1; i < mainArr.length; i++) {
+                    if (mainArr[i].sum > maxSum) {
+                        maxSum = mainArr[i].sum;
+                        maxArrayId = i;
+                    }
                 }
-            }
 
-            console.log("maxInnerArr", mainArr[maxArrayId].arr);
-            console.log("arrNumber", mainArr[maxArrayId].number);
-            console.log("maxSum", mainArr[maxArrayId].sum);
+            console.log("maxInnerArr", mainArr[maxArrayId].miniarr);
+            console.log("arrNumber", maxArrayId);
+            console.log("maxSum", maxSum);
         }
         
         // Создать главный массив для хранения вложенных массивов
@@ -66,7 +70,7 @@
 
         // Создать вложенные объекты с массивом чисел
         for (let i = 0; i < 10; i++) {
-            mainArr[i] = createObj(10, i);
+            mainArr[i] = new createArraySumObj(10);
         }
 
         console.log("mainArr", mainArr);

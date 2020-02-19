@@ -25,19 +25,25 @@
         <p id="ui"></p>
     </div>
     <script>
-var anotherObject = {
-	a: 2
-};
+        class Person {
+            constructor(firstname, lastname, born) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.born = born;
+        }
 
-// создаем объект, привязанный к `anotherObject`
-var myObject = Object.create( anotherObject );
+            age() {
+                var now = new Date();
 
-for (var k in myObject) {
-	console.log("найдено: " + k);
-}
-// найдено: a
+                return now.getFullYear() = this.born;
+            }
+        }
 
-("a" in myObject); // true
+        const iam = new Person("Yura", "Fedorenko", 1990);
+
+        iam.age(); // 28
     </script>
 </body>
 </html>
+
+
