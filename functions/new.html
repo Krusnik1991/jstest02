@@ -25,19 +25,34 @@
         <p id="ui"></p>
     </div>
     <script>
-var anotherObject = {
-	a: 2
-};
+        class Animal {
+            constructor(name) {
+                this.speed = 0;
+                this.name = name;
+            }
+            run(speed) {
+                this.speed += speed;
+                console.log(`${this.name} бежит со скоростью ${this.speed}.`);
+            }
+            stop() {
+                this.speed = 0;
+                console.log(`${this.name} стоит.`);
+            }
+        }
 
-// создаем объект, привязанный к `anotherObject`
-var myObject = Object.create( anotherObject );
+        // Наследуем от Animal указывая "extends Animal"
+        class Rabbit extends Animal {
+            hide() {
+                console.log(`${this.name} прячется!`);
+            }
+        }
 
-for (var k in myObject) {
-	console.log("найдено: " + k);
-}
-// найдено: a
-
-("a" in myObject); // true
+        let rabbit = new Rabbit("Белый кролик");
+        let animal = new Animal('hg');
+        rabbit.run(5); // Белый кролик бежит со скоростью 5.
+        rabbit.hide(); // Белый кролик прячется!
+        animal.run(5); // hg бежит со скоростью 5.
+        animal.hide(); // animal.hide is not a function
     </script>
 </body>
 </html>

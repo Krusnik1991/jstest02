@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- system -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.1,user-scalable=yes" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <!-- /system -->
+
+    <!-- headers -->
+    <title>Задачи Javascript</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- /headers -->
+    <link href="../styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <input id="elem" type="text" value="Посмотрите в консоль" />
+        <button id="execute">Ничего не произойдет</button>
+        <p id=ui2></p>
+        <p id="ui"></p>
+    </div>
+<!--     Написать класс Деньги для работы с денежными суммами. Число должно быть представлено двумя полями: одно для рублей и другое для копеек. Дробная часть (копейки) при выводе на экран должна быть отделена от целой части запятой. Реализовать сложение, вычитание, деление, умножение и операции сравнения. Проверить эти методы (выводить на экран результаты работы). 
+ --><script>
+        class Money {
+            constructor(rubles, pennies) {
+                if (rubles >= 0 && pennies >=0) {
+                    if ((rubles ^ 0) === rubles) {
+                        if (pennies >= 100) {
+                            rubles = rubles + 1;
+                            pennies = pennies - 100;
+                        }
+                        this.rubles = rubles;
+                        this.pennies = pennies;
+                    } else {
+                        return console.log("Рубли палёные!");
+                    }
+                } else {
+                return "Error";
+                }
+            }
+
+            toString() {
+                return this.rubles + "," + this.pennies;
+            }
+
+            // операция прибавления второго денежного значения
+            plusMoney(addedMoney) {
+                this.rubles = this.rubles + addedMoney.rubles;
+                this.pennies = this.pennies + addedMoney.pennies;
+                if (this.pennies >= 100) {
+                    this.rubles = this.rubles + 1;
+                    this.pennies = this.pennies - 100;
+                } 
+                return this;
+            }
+
+            // операция вычитания второго денежного значения
+            minusMoney(minusedMoney) {
+                this.rubles = this.rubles - minusedMoney.rubles;
+                this.pennies = this.pennies - minusedMoney.pennies;
+                if (this.pennies < 0) {
+                    this.rubles = this.rubles - 1;
+                    this.pennies = this.pennies + 100;
+                } 
+                return this;
+            }
+
+            // операция умножения на число
+            multiplyMoney(q) {
+                let num = this.rubles + 0.01 * this.pennies;
+                return (num * q).toFixed(2); // 162.11 good
+/*                 return Math.round(num * q); // 162   bad
+ */            }
+
+            // операция деления на число
+
+            divideMoney(q) {
+                let num = this.rubles + 0.01 * this.pennies;
+                return (num / q).toFixed(2); // 75.05 good
+/*                 return Math.round(num / q); // 75   bad
+ */            }
+
+            // операция вычета 13% налога
+            deductTax() {
+                let total = (this.rubles + 0.01 * this.pennies);
+                let totalExclTax = total - total * 13 / 100;
+                this.rubles = Math.trunc(totalExclTax);
+                this.pennies = Math.round((totalExclTax - Math.trunc(totalExclTax)) * 100); // danger prop Math.round for decimal's accuracy (alarm!)
+                return this;
+            }
+        }
+        
+        let salary = new Money(150, 10);
+        let sideJob = new Money(100, 30);
+
+        let totalSalary = salary.plusMoney(sideJob);
+        console.log(totalSalary);
+
+        let Konstyanta = Object.create(totalSalary); // Создаем клон
+
+        console.log(Konstyanta.minusMoney(sideJob).toString()); // 150,10 // Только эта фигня меняет this объекта, используем клон Констянта
+
+        console.log(totalSalary.multiplyMoney(1.08)); // 270.43
+        console.log(totalSalary.divideMoney(2).toString()); // 125.2
+    </script>
+</body>
+</html>
