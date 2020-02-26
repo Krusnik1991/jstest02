@@ -25,34 +25,20 @@
         <p id="ui"></p>
     </div>
     <script>
-        class Animal {
-            constructor(name) {
-                this.speed = 0;
-                this.name = name;
-            }
-            run(speed) {
-                this.speed += speed;
-                console.log(`${this.name} бежит со скоростью ${this.speed}.`);
-            }
-            stop() {
-                this.speed = 0;
-                console.log(`${this.name} стоит.`);
+        class CoffeeMachine {
+        waterAmount = 0; // количество воды внутри
+
+            constructor(power) {
+                this.power = power;
+                console.log( `Создана кофеварка, мощность: ${power}` );
             }
         }
 
-        // Наследуем от Animal указывая "extends Animal"
-        class Rabbit extends Animal {
-            hide() {
-                console.log(`${this.name} прячется!`);
-            }
-        }
+        // создаём кофеварку
+        let coffeeMachine = new CoffeeMachine(100);
 
-        let rabbit = new Rabbit("Белый кролик");
-        let animal = new Animal('hg');
-        rabbit.run(5); // Белый кролик бежит со скоростью 5.
-        rabbit.hide(); // Белый кролик прячется!
-        animal.run(5); // hg бежит со скоростью 5.
-        animal.hide(); // animal.hide is not a function
+        // добавляем воды
+        coffeeMachine.waterAmount = 200;
     </script>
 </body>
 </html>

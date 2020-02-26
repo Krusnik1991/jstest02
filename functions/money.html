@@ -73,39 +73,43 @@
             // операция умножения на число
             multiplyMoney(q) {
                 let num = this.rubles + 0.01 * this.pennies;
-                return (num * q).toFixed(2); // 162.11 good
-/*                 return Math.round(num * q); // 162   bad
- */            }
+                let res = (num * q).toFixed(2);
+                this.rubles = Math.trunc(res);
+                this.pennies = Math.round((res - Math.trunc(res)) * 100);
+                return this;
+            }
 
             // операция деления на число
 
             divideMoney(q) {
                 let num = this.rubles + 0.01 * this.pennies;
-                return (num / q).toFixed(2); // 75.05 good
-/*                 return Math.round(num / q); // 75   bad
- */            }
+                let res = (num / q).toFixed(2);
+                this.rubles = Math.trunc(res);
+                this.pennies = Math.round((res - Math.trunc(res)) * 100);
+                return this;
+            }
 
             // операция вычета 13% налога
             deductTax() {
                 let total = (this.rubles + 0.01 * this.pennies);
                 let totalExclTax = total - total * 13 / 100;
                 this.rubles = Math.trunc(totalExclTax);
-                this.pennies = Math.round((totalExclTax - Math.trunc(totalExclTax)) * 100); // danger prop Math.round for decimal's accuracy (alarm!)
+                this.pennies = Math.round((totalExclTax - Math.trunc(totalExclTax)) * 100);
                 return this;
             }
         }
         
-        let salary = new Money(150, 10);
-        let sideJob = new Money(100, 30);
+        let salary = new Money(99, 99);
+        let sideJob = new Money(100, 0);
 
         let totalSalary = salary.plusMoney(sideJob);
-        console.log(totalSalary);
+        console.log(totalSalary.toString());
 
         let Konstyanta = Object.create(totalSalary); // Создаем клон
 
-        console.log(Konstyanta.minusMoney(sideJob).toString()); // 150,10 // Только эта фигня меняет this объекта, используем клон Констянта
+        console.log(Konstyanta.minusMoney(sideJob).toString()); // 150,10 // Только эта функция меняет this объекта, используем клон Констянта
 
-        console.log(totalSalary.multiplyMoney(1.08)); // 270.43
+        console.log(totalSalary.multiplyMoney(1.08).toString()); // 270.43
         console.log(totalSalary.divideMoney(2).toString()); // 125.2
     </script>
 </body>
