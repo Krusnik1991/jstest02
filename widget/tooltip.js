@@ -1,6 +1,12 @@
-$('.elem').tooltip({
-/*     autoOpen: false,
- */    content: 'my content',
+$.widget('blabla_namespace.smth', $.ui.tooltip, {
+    close: function() {
+        console.log('don\'t Close!')
+    }
+});
+
+
+$('.elem').smth({
+    content: 'my content',
     classes: {
         'ui-tooltip': "highlight fosi_custom",
      },
